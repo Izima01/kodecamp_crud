@@ -13,6 +13,7 @@ connect(process.env.mongodbURL).then(() => {
 });
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/v1/tasks', taskRoute);
 app.use('/v1/auth', authRoute);
