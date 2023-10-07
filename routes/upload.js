@@ -12,7 +12,7 @@ route.post('/pic', upload.single('file'), async (req, res) => {
     console.log(req.file);
 
     const newTask = await taskCollection.create({
-        taskTitle, taskBody, pictureName: req.file.filename
+        taskTitle, taskBody, pictureName: req.file.originalname
     });
 
     res.send({
