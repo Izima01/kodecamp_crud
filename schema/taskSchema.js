@@ -17,6 +17,10 @@ const taskSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
+    },
+    pictureName: {
+        type: String,
+        default: 'picture 1'
     }
 }, { timestamps: true });
 

@@ -1,8 +1,7 @@
 const {Router } = require("express");
 const route = Router();
 const { taskCollection } = require('../schema/taskSchema');
-const jwt = require("jsonwebtoken");
-const { isUserLoggedIn, adminOnly } = require('./middlewares')
+const { isUserLoggedIn, adminOnly } = require('./middlewares');
 
 route.use(isUserLoggedIn);
 
@@ -60,8 +59,6 @@ route.delete('/delete_task/:id', async (req, res) => {
 });
 
 // Admin routes
-
-
 route.get('/admin/all-tasks', adminOnly, async (req, res) => {
     const task = await taskCollection.find();
     res.json(task);
